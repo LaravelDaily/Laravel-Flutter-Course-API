@@ -31,6 +31,11 @@ class Transaction extends Model
             ->format('Y-m-d');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     protected static function booted()
     {
         if (auth()->check()) {
@@ -39,5 +44,4 @@ class Transaction extends Model
             });
         }
     }
-
 }

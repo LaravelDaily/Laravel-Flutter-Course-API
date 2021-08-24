@@ -18,13 +18,15 @@ class TransactionController extends Controller
     public function index()
     {
         return TransactionResource::collection(
-            Transaction::with('category')->get());
+            Transaction::with('category')->latest()->paginate()
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTransactionRequest $request)
@@ -37,7 +39,6 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
     public function show(Transaction $transaction)
@@ -48,8 +49,8 @@ class TransactionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction  $transaction
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(StoreTransactionRequest $request, Transaction $transaction)
@@ -62,7 +63,6 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
     public function destroy(Transaction $transaction)
