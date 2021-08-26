@@ -22,7 +22,7 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'description'      => $this->faker->realText(40),
+            'description'      => $this->faker->realText(80),
             'amount'           => $this->faker->randomFloat($nbMaxDecimals = 2, $min = -200, $max = 200),
             'transaction_date' => $this->faker->dateTimeBetween('-3 months', '+3 months')->format('m/d/Y'),
         ];

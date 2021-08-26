@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         return CategoryResource::collection(
-            Category::select('id', 'name')->latest()->paginate()
+            Category::select('id', 'name')->latest()->get()
         );
     }
 
