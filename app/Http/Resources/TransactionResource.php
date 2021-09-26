@@ -16,7 +16,7 @@ class TransactionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'category_id' => $this->category_id,
+            'category_id' => (int)$this->category_id,
             'category_name' => $this->category->name,
             'amount' => number_format($this->amount / 100, 2),
             'transaction_date' => $this->transaction_date->format('m/d/Y'),
